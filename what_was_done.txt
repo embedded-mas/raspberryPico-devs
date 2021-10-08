@@ -1,0 +1,53 @@
+1) Device test with MicroPython programming with Thonny platform (https://projects.raspberrypi.org/en/projects/getting-started-with-the-pico).
+
+2) On Arduino IDE platform, install "Arduino Mbed OS RP2040 Boards" so that IDE supports Raspberry Pi Pico board (https://blog.arduino.cc/2021/04/27/arduino-mbed-core-for-rp2040-boards/?queryID=undefined).
+
+2.1) Because the device was used in a different language before, we need to reset it. To reset it, we connect a button on it to the RUN port (port 30) and to a GND port, then pressing the BOOTSEL button, pressing the Reset button (inserted in the RUN and GND port) and releasing the BOOTSEL button (https://www.youtube.com/watch?v=S1w6KOIwlAE).
+
+
+
+
+
+serial_read:
+
+1) On the Apache NetBeans IDE platform, open the read project and go to Source Packages[java] -> serial_read -> SerialRead.java, change the USB input port and check.
+
+
+2) Send a text via serial.println, adding a delay after the text.
+
+
+3) Upload Arduino files into Arduino folder. Insert a delay in the Arduino IDE before Serial.print(str), check and load the javard_hellow_world file from the provided javard_master package example.
+
+
+
+write:
+
+
+1) On the Apache NetBeans IDE platform, open the available project write and go to Source Packages[java] -> write -> App.java, change the USB input port and check.
+
+
+2) Insert a delay in the Arduino IDE before Serial.print(str) and check (not to send the message through the port and try to read on the same port simultaneously).
+
+
+3) On the Apache NetBeans IDE platform, open the available project write and go to Test Packages -> read -> AppTest.java and check.
+
+3.2) When an error appeared, clicking on the lamp, I selected the option to create a new App.java folder (second option).
+
+
+4) Check the Write project in java.
+
+
+5) Load the write file into Arduino IDE.
+
+
+6) Load the Write project into java.
+
+
+7) Open the serial monitor in the Arduino IDE.
+
+
+
+
+Note: Do not run the java write project while the serial monitor is open, wait for it to send the message and then open the serial monitor.
+
+Note 2: It may appear that problems were found to be solved when opening the projects in Java, just cancel and wait to open.
