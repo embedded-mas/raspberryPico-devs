@@ -1,0 +1,9 @@
+1) From the raspberryPico folder, upload the Arduino file. Install the board "Arduino Mbed OS RP2040 Boards" in the IDE Arduino.
+
+2) On the Apache NetBeans IDE platform, open the available write project and change the USB port entry if necessary.
+
+3) Connect the RaspBerry Pi Pico device via a USB port (if this is the first time, it may be necessary to hold the BOTTSEL button, press the Reset button - button to be connected to pin 30 (RUN) and a GND pin - and release the BOOTSEL button)
+
+4) Check and load the Aduino file and the write project into the Apache NetBeans IDE right away.
+
+Note: Do not run the java write project while the serial monitor is open, wait for it to send the message and then open the serial monitor.
