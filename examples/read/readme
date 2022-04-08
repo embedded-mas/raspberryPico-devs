@@ -15,3 +15,9 @@ Additional notes for Raspberry Pi Pico:
 2) Send a text via serial.println, adding a delay after the text.
 
 3) Upload Arduino files into Arduino folder. Insert a delay in the Arduino IDE before Serial.print(str), check and load the javard_hellow_world file from the provided javard_master package example.
+
+
+
+Note 1: Do not run the java write project while the serial monitor is open, wait for it to send the message and then open the serial monitor.
+
+Note 2: It may appear that problems were found to be solved when opening the projects in Java, just cancel and wait to open.
