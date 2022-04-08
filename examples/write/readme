@@ -1,0 +1,23 @@
+Additional notes for Raspberry Pi Pico:
+
+1) On the Apache NetBeans IDE platform, open the available project write and go to Source Packages[java] -> write -> App.java, change the USB input port and check.
+
+2) Insert a delay in the Arduino IDE before Serial.print(str) and check (not to send the message through the port and try to read on the same port simultaneously).
+
+3) On the Apache NetBeans IDE platform, open the available project write and go to Test Packages -> read -> AppTest.java and check.
+3.1) When an error appeared, clicking on the lamp, I selected the option to create a new App.java folder (second option).
+
+4) Check the Write project in java.
+
+5) Load the write file into Arduino IDE.
+
+6) Load the Write project into java.
+
+7) Open the serial monitor in the Arduino IDE.
+
+
+
+
+Note 1: Do not run the java write project while the serial monitor is open, wait for it to send the message and then open the serial monitor.
+
+Note 2: It may appear that problems were found to be solved when opening the projects in Java, just cancel and wait to open.
