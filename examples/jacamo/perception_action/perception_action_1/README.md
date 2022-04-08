@@ -24,3 +24,21 @@ The agent has a perception "light_state(S)" (where S=1 means led on; S=0 means l
 
 1. Load the program [read_char](arduino/lights/lights.ino) to an Arduino
 1. In a terminal, type ```./gradlew run -q --console=plain ```
+
+
+
+# Additional notes for Raspberry Pi Pico:
+
+1) In the Arduino IDE change the pins to the corresponding port for the LED (in the example pin 28 was used).
+
+2) In the ATOM editor, add the build, build-gradel, busy-signal, lenguage-agentspeak and language-jcm packages.
+
+3) In the build.gradle file, update to the most current version (in the example version 0.029-SNAPSHOT was used) on line 34.
+
+4) In DemoEmbeddedAgent.java, change the serial port for the port connected to the board (in the example "COM4" was used).
+
+Note 1: Changed the board name in DemoEmbeddedAgent.java and in sample_agent.asl from "Arduino1" to "RaspBPP1"
+
+Note 2: Do not place the perception_action_1 project inside folders that contain space in their name if using Atom.
+
+
