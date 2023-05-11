@@ -1,0 +1,27 @@
+--- # Devices
+- device_id: arduino1
+  #className:  MyDemoDevice
+  className: embedded.mas.bridges.jacamo.JSONWatcherDevice
+  microcontroller:
+      id: arduino1
+      className: Arduino4EmbeddedMas
+      serial: "COM3"
+      baudRate: 9600
+  serialActions:
+      - actionName: capt_B
+        actuationName: captBuffer
+      - actionName: capt_R
+        actuationName: captRack
+      - actionName: capt_C
+        actuationName: captCar
+
+#      - actionName: capt2
+#        actuationName: capture2
+#      - actionName: capt3
+#        actuationName: capture3
+#      - actionName: capt4
+#        actuationName: capture4
+#      - actionName: capt5
+#        actuationName: capture5
+#      - actionName: capt6
+#        actuationName: capture6
