@@ -14,6 +14,14 @@
   <- .print("Delivery moved").
 
 
++ok <- .print("botão pressionado");
+       .send(sample_agent,achieve,remove_delivery).
+
+
+{ include("$jacamoJar/templates/common-cartago.asl") }
+
+
+
 
 
 

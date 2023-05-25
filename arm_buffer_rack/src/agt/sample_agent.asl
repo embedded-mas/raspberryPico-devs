@@ -1,4 +1,5 @@
 !start.
+//!emptyBuffer.
 
 +!start : true <- .print("Hello world.").
 
@@ -15,13 +16,24 @@
      .print("Rack detected empty.");
      +rackEmpty.
 
+/*
++!emptyBuffer : buffer(1)
+  <- !move_buffer;
+     !emptyBuffer.
+
++!emptyBuffer : buffer(0)
+  <- .wait(buffer(1));
+     !emptyBuffer.
+*/
+
 +!move_buffer : rackEmpty
   <- .print("Buffer detected. Rack is empty.");
      embedded.mas.bridges.jacamo.defaultEmbeddedInternalAction("arduino1","capt_B",[]).
 +!move_buffer : rackFull
   <- .print("Buffer detected. Rack is full.");
      embedded.mas.bridges.jacamo.defaultEmbeddedInternalAction("arduino1","capt_R",[]);
-     .send(sample_agent,achieve,move_delivery);
+     .wait(10000);
+     .send(delivery,achieve,move_delivery);
      embedded.mas.bridges.jacamo.defaultEmbeddedInternalAction("arduino1","capt_B",[]).
 +!move_buffer
   <- .print("Buffer: Unidentified Rack.").
@@ -29,7 +41,8 @@
 +!remove_delivery[source(Sender)] : rackEmpty
   <- .print("Delivery detected. Rack is empty.");
      embedded.mas.bridges.jacamo.defaultEmbeddedInternalAction("arduino1","capt_C",[]);
-     .send(sample_agent,achieve,move_delivery).
+     .wait(3000);
+     .send(delivery,achieve,move_delivery).
 +!remove_delivery[source(Sender)] : rackFull
   <- .print("Delivery detected. Rack is full, not possible.").
 +!remove_delivery[source(Sender)]

@@ -19,6 +19,13 @@ mas architecture_1 {
       ag-arch: embedded.mas.bridges.jacamo.DefaultEmbeddedAgArch
     }
 
-    agent delivery
+    agent delivery{
+      focus: workspace_gui.gui 
+    }
 
+    //especificação do workspace "workspace_gui"
+    workspace workspace_gui{
+     artifact gui: tools.MySimpleGUI()
+
+   }
 }
