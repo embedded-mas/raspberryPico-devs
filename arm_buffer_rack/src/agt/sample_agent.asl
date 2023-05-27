@@ -22,6 +22,11 @@
      !emptyBuffer.
 
 +!emptyBuffer : buffer(0)
+  <- .print("Esperando buffer.");
+     .wait(buffer(1));
+     !emptyBuffer.
+
++!emptyBuffer
   <- .wait(buffer(1));
      !emptyBuffer.
 */
@@ -36,7 +41,8 @@
      .send(delivery,achieve,move_delivery);
      embedded.mas.bridges.jacamo.defaultEmbeddedInternalAction("arduino1","capt_B",[]).
 +!move_buffer
-  <- .print("Buffer: Unidentified Rack.").
+  <- .print("Buffer: Unidentified Rack.");
+     +buffer(0).
 
 +!remove_delivery[source(Sender)] : rackEmpty
   <- .print("Delivery detected. Rack is empty.");

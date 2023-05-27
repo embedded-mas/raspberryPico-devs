@@ -22,9 +22,8 @@ int att = 1;
 int buff = 0;
 int rack = 0;
 int pos = 0;
-int interrupt1 = 0;
-int interrupt2 = 0;
-int interrupt3 = 0;
+int b = 0;
+int r = 0;
 
 void setup()
 {
@@ -40,6 +39,8 @@ void setup()
   attachInterrupt(digitalPinToInterrupt(botao2),capture2, RISING);
   pinMode(botao3, INPUT);
   attachInterrupt(digitalPinToInterrupt(botao3),capture3, RISING);
+  pinMode(botao4, INPUT);
+  attachInterrupt(digitalPinToInterrupt(botao4),capture4, RISING);
   rpServo1.write(110);
   rpServo2.write(30);
   rpServo3.write(180);
@@ -49,23 +50,28 @@ void setup()
 }
 
 void capture1(){
- interrupt1 = 1;
+ buff = 0;
  att = 1;
 }
 
 void capture2(){
- interrupt2 = 0;
+ buff = 1;
  att = 1;
 }
 
 void capture3(){
- interrupt2 = 1;
+ rack = 0;
+ att = 1;
+}
+
+void capture4(){
+ rack = 1;
  att = 1;
 }
 
 
 void loop()
-{
+{ 
   while(Serial.available() > 0){
      String s = Serial.readString();
      if(s.equals("captBuffer")){
@@ -128,7 +134,6 @@ void loop()
     }
 
     if(s.equals("captRack")){
-      att = 1;
       for(pos = 110; pos <= 175; pos += 1){
         rpServo1.write(pos);
         delay(15);
@@ -235,17 +240,6 @@ void loop()
       }
      }
    }
-
-  if(interrupt1==1){
-    buff = 1;
-    interrupt1 = 0;
-  }
-  if(interrupt2==0){
-    rack = 0;
-  }
-  if(interrupt2==1){
-    rack = 1;
-  }
 
   if(att == 1){
     communication.startBelief("buffer");
