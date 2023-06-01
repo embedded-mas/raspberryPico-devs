@@ -21,6 +21,7 @@ Servo rpServo4;
 int att = 1;
 int buff = 0;
 int rack = 0;
+int mov = 0;
 int pos = 0;
 int b = 0;
 int r = 0;
@@ -76,6 +77,7 @@ void loop()
      String s = Serial.readString();
      if(s.equals("captBuffer")){
       att = 1;
+      mov = 1;
       for(pos = 110; pos >= 5; pos -= 1){
         rpServo1.write(pos);
         delay(15);
@@ -131,6 +133,7 @@ void loop()
         delay(15);
       }
       buff = 0;
+      mov = 0;
     }
 
     if(s.equals("captRack")){
@@ -188,6 +191,7 @@ void loop()
 
     if(s.equals("captCar")){
       att = 1;
+      mov = 1;
       for(pos = 30; pos <= 120; pos += 1){
         rpServo2.write(pos);
         delay(15);
@@ -239,6 +243,7 @@ void loop()
         delay(15);
       }
      }
+      mov = 0;
    }
 
   if(att == 1){
@@ -247,6 +252,9 @@ void loop()
     communication.endBelief();
     communication.startBelief("rack");
     communication.beliefAdd(rack);
+    communication.endBelief();
+    communication.startBelief("movimentando");
+    communication.beliefAdd(mov);
     communication.endBelief();
     communication.sendMessage();
     att = 0;
