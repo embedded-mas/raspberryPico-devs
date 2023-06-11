@@ -77,7 +77,6 @@ void loop()
      String s = Serial.readString();
      if(s.equals("captBuffer")){
       att = 1;
-      mov = 1;
       for(pos = 110; pos >= 5; pos -= 1){
         rpServo1.write(pos);
         delay(15);
@@ -191,7 +190,6 @@ void loop()
 
     if(s.equals("captCar")){
       att = 1;
-      mov = 1;
       for(pos = 30; pos <= 120; pos += 1){
         rpServo2.write(pos);
         delay(15);
@@ -242,8 +240,13 @@ void loop()
         rpServo1.write(pos);
         delay(15);
       }
-     }
       mov = 0;
+     }
+     
+     if(s.equals("movArm")){
+      att = 1;
+      mov = 1;
+     }
    }
 
   if(att == 1){

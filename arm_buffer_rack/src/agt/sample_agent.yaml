@@ -14,14 +14,5 @@
         actuationName: captRack
       - actionName: capt_C
         actuationName: captCar
-
-#      - actionName: capt2
-#        actuationName: capture2
-#      - actionName: capt3
-#        actuationName: capture3
-#      - actionName: capt4
-#        actuationName: capture4
-#      - actionName: capt5
-#        actuationName: capture5
-#      - actionName: capt6
-#        actuationName: capture6
+      - actionName: mov_A
+        actuationName: movArm
