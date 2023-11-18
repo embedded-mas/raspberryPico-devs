@@ -1,4 +1,4 @@
-#include<Embedded_Protocol_2_old.h>
+#include<Embedded_Protocol_2.h>
 #include<ArduinoJson.h>
 
 Communication communication;
@@ -9,93 +9,7 @@ int delay_time;
 int light_state = 1;
 int var;
 String t;
-/*
-String paramStr(String s){
-    int var[10]={1};
-    int n = s.length();
-    int p1;
-    char a='(';
-    
-    for (int i=0; i<=n; i++){
-      if(s[i]==a){
-        p1 = i;
-      }
-    }
-    if(p1!=0){
-      t = s.substring(0,p1);
-    }
-    else{
-      t = s;
-    }
-    return t;
-}
 
-int paramInt(String s, int p=0){
-    int var[10]={1};
-    int p1=0, p2, d, v=0;
-    char a='(', b=')', c = ',';
-    int n = s.length();
-    int p3[n-3];
-  
-    for (int i=0; i<=n; i++)
-    {
-      if(s[i]==c)
-      {
-        p3[v] = i;
-        v++;
-      }
-    }
-    
-    for (int i=0; i<=n; i++){
-      if(s[i]==a){
-        p1 = i;
-      }
-      if(s[i]==b){
-        p2 = i;
-      }
-    }
-
-    if(p1!=0){
-      char tC[10];
-      for (int j=0; j<=v; j++){
-        if(j==0){
-          int d, p1aux;
-            d = p3[j]-p1;
-            p1aux = p1;
-            for (int k=0; k<=d; k++){
-              tC[k] = s[p1aux+1];
-              p1aux++;
-            }
-            var[j] = atoi(tC);
-        }
-        if(j!=0 && j!=v){
-          int d, p1aux;
-            d = p3[j]-p3[j-1];
-            p1aux = p3[j-1];
-            for (int k=0; k<=d; k++){
-              tC[k] = s[p1aux+1];
-              p1aux++;
-            }
-            var[j] = atoi(tC);
-        }
-        if(j==v){
-          int d, p1aux;
-            d = p2-p3[j-1];
-            p1aux = p3[j-1];
-            for (int k=0; k<=d; k++){
-              tC[k] = s[p1aux+1];
-              p1aux++;
-            }
-            var[j] = atoi(tC);
-        }
-      }
-    }
-    else{
-      var[0] = 1;
-    }
-    return var[p];
-}
-*/
 void setup() 
 {
   pinMode(LIGHT,OUTPUT);
